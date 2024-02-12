@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const { data: postListData, isLoading: postListLoading } = usePostList();
+  // if (postListLoading) return <>Loading...</>;
 
+  // pretty print the postListData. Show some hyperlink so that i can click and see the post details
   return (
-    <>
+    <div>
+      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+        <div className="flex flex-wrap items-center justify-between p-1 ">
+          <div className="flex flex-row flex-nowrap space-x-4">
+            <Link
+              to="/org/0"
+              className="block py-2 px-3 rounded md:bg-transparent md:p-0 dark:text-white hover:bg-[#717171]"
+              aria-current="page"
+            >
+              0
+            </Link>
+            <Link
+              to="/org/1"
+              className="block py-2 px-3 rounded md:bg-transparent md:p-0 dark:text-white hover:bg-[#717171]"
+              aria-current="page"
+            >
+              1
+            </Link>
+            <Link
+              to="/org/2"
+              className="block py-2 px-3 rounded md:bg-transparent md:p-0 dark:text-white hover:bg-[#717171]"
+              aria-current="page"
+            >
+              2
+            </Link>
+          </div>
+        </div>
+      </nav>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Outlet />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
